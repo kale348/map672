@@ -90,6 +90,29 @@
     <script>
         // JavaScript code goes here  
         
+        // Select h1 heading and change its text
+        document.querySelector('h1').innerHTML = 'web mapping is sweet!';
+        
+        // Select box ID and change its background color
+        var box = document.getElementById('box');
+        box.style.background = '#4d4a9f';
+        
+        // Select all circle classes and change their border radius
+        var elements = document.getElementsByClassName('circle');
+        
+        for(var i=0; i <= elements.length-1;i++){
+            elements[i].style['border-radius'] = '20%';
+        }
+        
+        // Change box ID with on click
+        box.addEventListener('click', function() {
+            this.style.width = '400px';
+        })
+        
+        //  Add new list item
+        var newListItem = document.createElement('li');
+        newListItem.innerHTML = "list item 4";
+        document.querySelector('ul').appendChild(newListItem);
     </script>
     
 </body>

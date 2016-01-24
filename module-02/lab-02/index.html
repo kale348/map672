@@ -68,7 +68,7 @@
             margin: 25px;
         }
         
-        /* In each circle div class, create a mauve circle (a square with a 50% border radius) that is 100px tall and 100px wide with 25px left and right margins. Display the circles using inline-block so they can be displayed next to one another in a horizontal row. */
+        /* In each circle div class, create a mauve circle (a square with a 50% border radius) that is 100px tall and 100px wide with 25px left and right margins. Display the circles using inline-block so they only take up their defined width (100px) and can be displayed next to one another in a horizontal row. */
         .circle {
             width: 100px;
             height: 100px;
@@ -109,10 +109,10 @@
     <script>
         // JavaScript code goes here  
         
-        // Select h1 heading and change its text
+        // Select the h1 heading and change its text
         document.querySelector('h1').innerHTML = 'web mapping is sweet!';
         
-        // Select box ID and change its background color
+        // Select the box div ID and change its background color
         var box = document.getElementById('box');
         box.style.background = '#4d4a9f';
         
@@ -123,7 +123,7 @@
             elements[i].style['border-radius'] = '20%';
         }
         
-        // When the user clicks the box ID, increase its width to 400px
+        // When the user clicks the box div ID, increase its width to 400px
         box.addEventListener('click', function() {
             this.style.width = '400px';
         })
@@ -132,6 +132,9 @@
         var newListItem = document.createElement('li');
         newListItem.innerHTML = "list item 4";
         document.querySelector('ul').appendChild(newListItem);
+        
+        // Log text to browser's Console
+        console.log("hello map");
     </script>
     
 </body>

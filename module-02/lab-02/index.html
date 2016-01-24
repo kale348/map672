@@ -17,46 +17,58 @@
             font-family: sans-serif;
             color: #3d3d3d;
         }
+        
+        /* Increase all h1 headings to 1.6 em space, add a 25px left margin, and change the color to dark blue */
         h1 {
             font-size: 1.6em;
             margin-left: 25px;
             color: #3e6b93;
         }
+        
+        /* Increase all h2 headings to 1.2 em space, add a 25px left margin, and change the font style to italic */
         h2 {
             font-size: 1.4em;
             margin-left: 25px;
             font-style: italic;
-            color: #3d3d3d;
         }
+        
         p {
             font-size: 1em;
             margin: 15px 25px;
             max-width: 800px;
             line-height: 1.4;
         }
+        
         a {
             color: #3e6b93;
             font-weight: bold;
             text-decoration: none;
         }
+        
         a:hover {
             text-decoration: underline;
         }
+        
         img {
             margin-left: 25px;
             border: 2px solid black;
             max-width: 100%;
         }
+        
         li {
             line-height: 1.25;
             margin: 10px;
         }
+        
+        /* In the box div ID, create a dark blue box that is 200px tall and 200px wide with a 25px margin */
         #box {
             width: 200px;
             height: 200px;
             background: #3e6b93;
             margin: 25px;
         }
+        
+        /* In each circle div class, create a mauve circle (a square with a 50% border radius) that is 100px tall and 100px wide with 25px left and right margins. Display the circles using inline-block so they can be displayed next to one another in a horizontal row. */
         .circle {
             width: 100px;
             height: 100px;
@@ -65,7 +77,6 @@
             display: inline-block;
             margin: 0 25px;
         }
-        
     </style>
 </head>
 
@@ -76,13 +87,20 @@
     <h2>A dark global basemap with "lights" in the oceans</h2>
     <p>This basemap exemplifies what John Pickles (2004) defined as a <i>cartographic gaze</i>, a miniature, yet global view of the world designed for a specific, albeit limited purpose. This basemap shows the entire world at once. However, polar areas appear distored and minimized. This basemap also prioritizes the oceans over land features, showing white "lights" in the ocean ridges. It provides an artistic approach, but has limited use. For best results, use this basemap to show generalized, global data, and avoid displaying features which demand detail as well as features that would cover up the characteristic design in the oceans. (This basemap is brought to you by CartoDB and <a href="http://veggieipsum.com/">Veggie Ipsum</a>.)</p>
     <div id="map"><img src="images/world2.png" alt="world map"></div>
+    
+    <!-- Add a paragraph of Lorem ipsum text with a hyperlink to the Wikipedia article on Lorem ipsum -->
     <p>paragraph with link: <a href="https://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl.</p>
     <ul>
+        <li>un-ordered list item 1</li>
+        <li>list item 2</li>
+        <li>list item 3</li>
         <li><a href="http://leafletjs.com/">Leaflet</a></li>
         <li><a href="https://www.mapbox.com/">Mapbox</a></li>
         <li><a href="https://cartodb.com/">CartoDB</a></li>
         <li><a href="http://d3js.org/">Data-Driven Documents</a></li>        
     </ul>
+    
+    <!-- Add a unique division element named "box" that will be styled by the #box CSS style-->
     <div id="box"></div>
     <div class="circle"></div>
     <div class="circle"></div>
@@ -105,7 +123,7 @@
             elements[i].style['border-radius'] = '20%';
         }
         
-        // Change box ID with on click
+        // When the user clicks the box ID, increase its width to 400px
         box.addEventListener('click', function() {
             this.style.width = '400px';
         })

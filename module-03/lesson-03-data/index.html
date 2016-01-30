@@ -48,7 +48,7 @@
     console.log(5 != 8); // output is true
     console.log(5 < "8"); // output is true
     console.log(5 > "8"); // output is false
-    console.log(5 == "5"); // output is true
+    console.log(5 == "5"); // output is true because of type conversion
     console.log(5 === "5"); // output is false because 5 is a number and "5" is a string
     
     //String operators
@@ -64,32 +64,37 @@
     console.log(1 < 2 && 2 > 3); // output is false because the second statement (2 > 3) is not true
     console.log(1 < 2 || 2 > 3); // output is true because only one of the statements need be true
             
-    //NOT operator
+    //Logical operator (NOT)
     console.log(!true); // output is false
     console.log (1 != 2); // output is true because 1 is not equal to 2
     console.log (1 != 1); // output is false because 1 is equal to 1
 
     //Variables
     var city;
+    var myCity;
+    var myFavoriteCity;
+    var myFavoriteCityInTheWorld // Although descriptive, it is getting a bit long
+    
+    var city;
     city = "Lexington";
-    console.log(city);
+    console.log(city); // output is Lexington
     
     var city = "Frankfort";
-    console.log(city);
+    console.log(city); // output is Frankfort
     
     //Concatenating variables
     var city = "Frankfort";
     var state = "Kentucky";
-    console.log(city, ', ',state);
+    console.log(city, ', ',state); // output is Frankfort, Kentucky
     
     //Arithmetic expressions in variables
     var total1 = 15 + 20;
-    console.log(total1);
+    console.log(total1); // output is 35
     var value1 = 30;
     var value2 = 60;
-    var total2 = value1 + value2;
+    var total2 = value1 + value2; // output is 90
     console.log(total2);
-    var average = total1/total2;
+    var average = total1/total2; // output is 35 divided by 90
     console.log(average);
     
     //Modifying variables
@@ -100,7 +105,7 @@
     
     //Combining strings and numbers in a log
     var cityPop = 308248;
-    console.log("The population of Lexington is ", cityPop);
+    console.log("The population of Lexington is ", cityPop); // output is The population of Lexington is 308428
 
     //Array literal
     var cities = []; // creates an empty Array
@@ -138,8 +143,8 @@
         [25527, 756832, 308428],
         ["Frankfort", 756832, false]
     ];
-    console.log(twoDArray[0][2]); // output will be Lexington
-    console.log(twoDArray[2][1]); // output will be 756832
+    console.log(twoDArray[0][2]); // output is Lexington
+    console.log(twoDArray[2][1]); // output is 756832
     
     //Updating and adding values to an Array
     var years = [2010, 2011, 2022, 2013, 2014];
@@ -152,12 +157,12 @@
     counties[0] = "Adair";
     console.log(counties); // output is a single item Array ["Adair"]
     counties[1] = "Allen";
-    console.log(counties); // output is now ["Adair", "Allen"]
+    console.log(counties); // output is now a two item Array ["Adair", "Allen"]
     
     counties[5] = "Anderson";
     console.log(counties);
-    console.log(counties[2]);
-    console.log(counties[5]);
+    console.log(counties[2]); // output is undefined
+    console.log(counties[5]); // output is Anderson
 
 </script>
     

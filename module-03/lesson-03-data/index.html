@@ -20,21 +20,21 @@
     
     //Values and types
     
-    //String outputs
-    console.log('hello map');
+    //String and number outputs
     console.log("hello map");
-    console.log('5'); // output is 5, a string type
-    console.log("true");
-    console.log("false");
-
-    //Number outputs
+    console.log('hello map');
     console.log(5); // output is 5, a numeric type
-    console.log(5.5); // output is 5.5
-    console.log(5e10); // output is 50000000000
+    console.log('5'); // output is 5, a string type
+    console.log(5.5); // output is 5.5, a numeric type
+    console.log(5e10); // output is 50000000000, a numeric type   
     
     //Boolean outputs
     console.log(true);
     console.log(false);
+    
+    //String outputs for true and false
+    console.log("true");
+    console.log("false");
     
     //Expressions and operators
     
@@ -46,10 +46,6 @@
     console.log(5 > 8); // output is false
     console.log(5 == 8); // output is false
     console.log(5 != 8); // output is true
-    console.log(5 < "8"); // output is true
-    console.log(5 > "8"); // output is false
-    console.log(5 == "5"); // output is true because of type conversion
-    console.log(5 === "5"); // output is false because 5 is a number and "5" is a string
     
     //String operators
     console.log("My name is " + "Vance Alligator");
@@ -58,6 +54,12 @@
     console.log(5 + "8"); // output is 58
     console.log(5 - "8"); // output is -3
     console.log(5 + "hello map"); // output is 5hello map
+    
+    //Comparison operators with mixed data types
+    console.log(5 < "8"); // output is true
+    console.log(5 > "8"); // output is false
+    console.log(5 == "5"); // output is true because of type conversion
+    console.log(5 === "5"); // output is false because 5 is a number and "5" is a string
     
     //Logical operators (AND, OR)
     console.log(1 < 2 && 2 < 3); // output is true because 1 < 2 and 2 < 3
@@ -75,6 +77,7 @@
     var myFavoriteCity;
     var myFavoriteCityInTheWorld // Although descriptive, it is getting a bit long
     
+    //Assigning a value to a variable
     var city;
     city = "Lexington";
     console.log(city); // output is Lexington
@@ -99,9 +102,9 @@
     
     //Modifying variables
     var year = 2015;
-    console.log(year); // year = 2015
+    console.log(year); // year references the number 2015
     var year = year + 1;
-    console.log(year); //year = 2016
+    console.log(year); // year now references the number 2016
     
     //Combining strings and numbers in a log
     var cityPop = 308248;
@@ -150,7 +153,7 @@
     var years = [2010, 2011, 2022, 2013, 2014];
     console.log(years); // Array with wrong year
     years[2] = 2012;
-    console.log(years); // Array with updated year
+    console.log(years); // Array updated with the correct year
     
     var counties = [];
     console.log(counties); // output is an empty Array

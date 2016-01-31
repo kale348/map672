@@ -50,16 +50,17 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>Kentucky's Major Cities in Watercolor</h1>
+        <h2>Louisville, Lexington, and Frankfort</h2>
     </header>
 
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by YOUR NAME</p>
-        <p>Additional information about the data and map goes here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
+        <p>Map authored by Lauren Winkler</p>
+        <p>This map contains shows the capital of Kentucky (<a href="https://en.wikipedia.org/wiki/Frankfort,_Kentucky">Frankfort</a>) and the state's two largest cities (<a href="https://en.wikipedia.org/wiki/Louisville,_Kentucky">Louisville</a> and <a href = "https://en.wikipedia.org/wiki/Lexington,_Kentucky">Lexington</a>)  on a watercolor basemap from Stamen Design. Click a city to view its name and population. Zoom in to view the city map come to life in watercolor.</p>
+        <p>Population data is from 2014 U.S. Census estimates, accessed from the Wikipedia page for each city. The population of Louisville is the <a href="https://en.wikipedia.org/wiki/Louisville/Jefferson_County_metro_government_(balance),_Kentucky">balance</a> population, representing the portion of Jefferson County that was the city of Louisville, prior to the 2003 creation of the Louisville metro area.</p>
+        <p>Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>
         </p>
     </footer>
 
@@ -84,8 +85,39 @@
         
         // BEGIN WRITING CODE FOR LAB 03 HERE
         
+        
+        // CITY 1
         var city1Name = "Lexington";
+        var city1Lat = 38.0297;
+        var city1Lon = -84.4947;
+        var city1Pop = 310797;
+        var city1Capital = false;
+        
+        // CITY 2
+        var city2Name = "Frankfort";
+        var city2Lat = 38.1970;
+        var city2Lon = -84.8630;
+        var city2Pop = 27557;
+        var city2Capital = true;
+        
+        // CITY 3
+        var city3Name = "Louisville";
+        var city3Lat = 38.2500;
+        var city3Lon = -85.7667;
+        var city3Pop = 612780;
+        var city3Capital = false;
        
+        // TOTAL POPULATION
+        var totalPop = city1Pop + city2Pop + city3Pop;
+        console.log("The total population of these cities is: ", totalPop);
+        
+        // AVERAGE POPULATION
+        var averagePop = totalPop/3;
+        console.log("The average population of these cities is: ", averagePop);
+        
+        // CITIES ARRAY
+        var cities = [city1Name, city2Name, city3Name];
+        console.log(cities[2]);
         
         // END WRITING CODE FOR LAB 03 HERE
         
@@ -100,27 +132,27 @@
         L.marker([city1Lat,city1Lon]).addTo(map)
             .bindPopup(city1Popup);
         
-//         CITY2 MARKER CODE HERE
-//        var city2Popup = "<b>"+city2Name+"</b><br>"
-//                        +"<b>population</b>: "+city2Pop;
-//        
-//        if(city2Capital == true) {
-//            city2Popup += "<br>Capital of the Commonwealth of Kentucky";   
-//        }
-//        
-//        L.marker([city2Lat,city2Lon]).addTo(map)
-//            .bindPopup(city2Popup);
+        // CITY2 MARKER CODE HERE
+        var city2Popup = "<b>"+city2Name+"</b><br>"
+                        +"<b>population</b>: "+city2Pop;
         
-//         CITY3 MARKER CODE HERE
-//        var city3Popup = "<b>"+city3Name+"</b><br>"
-//                        +"<b>population</b>: "+city3Pop;
-//        
-//        if(city3Capital == true) {
-//            city3Popup += "<br>Capital of the Commonwealth of Kentucky";   
-//        }
-//        
-//        L.marker([city3Lat,city3Lon]).addTo(map)
-//            .bindPopup(city3Popup);
+        if(city2Capital == true) {
+            city2Popup += "<br>Capital of the Commonwealth of Kentucky";   
+        }
+        
+        L.marker([city2Lat,city2Lon]).addTo(map)
+            .bindPopup(city2Popup);
+        
+        // CITY3 MARKER CODE HERE
+        var city3Popup = "<b>"+city3Name+"</b><br>"
+                        +"<b>population</b>: "+city3Pop;
+        
+        if(city3Capital == true) {
+            city3Popup += "<br>Capital of the Commonwealth of Kentucky";   
+        }
+        
+        L.marker([city3Lat,city3Lon]).addTo(map)
+            .bindPopup(city3Popup);
           
     </script>
     

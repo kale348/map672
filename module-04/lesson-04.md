@@ -181,7 +181,7 @@ Often we want to test more than one condition before executing the  `else` block
 var temp = 33;
 if(temp <= 32) {
     console.log('the temperature is freezing');
-else if(temp > 32) {
+} else if(temp > 32) {
     console.log('the temperature is above freezing');
 } else {
     console.log('the value of temp must not be a number');

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8 />
-    <title>Lab 04 Starter Template</title>
+    <title>Major Cities in Pennsylvania</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -51,16 +51,17 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>Major Cities in Pennsylvania</h1>
+        <h2>Pittsburgh, Harrisburg, and Philadelphia</h2>
     </header>
 
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by YOUR NAME</p>
-        <p>Additional information about the data and map goes here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
+        <p>Map authored by Lauren Winkler</p>
+        <p>This map contains shows the capital of Pennsylvania (<a href="https://en.wikipedia.org/wiki/Harrisburg,_Pennsylvania">Harrisburg</a>) and the state's two largest cities (<a href="https://en.wikipedia.org/wiki/Philadelphia">Philadelphia</a> and <a href = "https://en.wikipedia.org/wiki/Pittsburgh">Pittsburgh</a>)  on Esri ArcGIS Online's World Street Map basemap. Click a city to view its name and population and see if it is the state capital.</p>
+        <p>Population data is from 2014 U.S. Census estimates, accessed from the Census QuickFacts page for each city (<a href="http://quickfacts.census.gov/qfd/states/42/4261000.html">Pittsburgh</a>, <a href="http://quickfacts.census.gov/qfd/states/42/4232800.html">Harrisburg</a>, <a href="http://quickfacts.census.gov/qfd/states/42/4260000.html">Philadelphia</a>.
+        <p>Map data tiles &copy; <a href="https://www.arcgis.com/home/">Esri ArcGIS Online</a> &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012</a>
         </p>
     </footer>
 
@@ -69,8 +70,8 @@
         var targetDiv = 'map';
 
         var options = {
-            center: [0, 0],
-            zoom: 2
+            center: [40.5, -77.5],
+            zoom: 7
         }
         map = L.map(targetDiv, options);
         var tiles = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -80,25 +81,34 @@
         
         // begin writing/editing Lab 04 code here
         
-
-//        for(/* add code here */) {
-//            
-//            var popup = "<b>"+/* add code here */+"</b><br>"
-//                            +"<b>population</b>: "+/* add code here */;
-//
-//            if(/* add code here */) {
-//               
-//                popup += "<br>Is the capital city."; 
-//                
-//            } 
-//            
-//            L.marker(/* add code here */).addTo(map)
-//                .bindPopup(popup);
-//        }
+        //Identify cities and their coordinates, populations, and state capital status
+        var cities = ["Pittsburgh", "Harrisburg", "Philadelphia"];
+        var cityCoords = [
+            [40.4397, -79.9764], 
+            [40.2697, -76.8756], 
+            [39.9500, -75.1667]
+        ];
+        var cityPops = [305412, 49082, 1560297];
+        var cityCapital = [false, true, false];
+        
+        //Loop through each city in the cities array
+        for(var i = 0; i < cities.length; i++) {
+            
+            //Create a popup with the city name and population
+            var popup = "<b>"+cities[i]+"</b><br>"+"<b>population</b>: "+cityPops[i];
+            
+            //Add "state capital" if the city is the state capital
+            if(cityCapital[i] == true) {               
+                popup += "<br>State capital";     
+            } 
+            
+            //Create each city popup with the coordinates of each city
+            L.marker(cityCoords[i]).addTo(map)
+                .bindPopup(popup);
+        }
         
         // end writing/editing Lab 04 code here
-        
-          
+              
     </script>
     
 </body>

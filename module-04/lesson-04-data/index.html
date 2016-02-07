@@ -19,41 +19,45 @@
 /* JavaScript code goes here! */
     
     //Return length of Array using .length property
+    
+    //Return length of an Array of strings
     var cities = ["Frankfort", "Louisville", "Lexington"];
     console.log(cities.length); // output will be 3
     
+    //Return length of an Array of numbers
     var years = [2011, 2012, 2013, 2014, 2015, 2016];
     var yearsNum = years.length;
     console.log(yearsNum); // output will be 6
     
     //for loops, for use when the number of times the loop should be executed is known
-    //for loop using i as the counting variable and ++ as the increment method
+
+    //Create a for loop using i as the counting variable and ++ as the increment method. Start at i = 0 and output i as long as it is less than 5.
     console.log("before the for loop");
     for (var i = 0; i < 5; i++) {
         console.log(i); // outputs numbers from 0 to 4
     }
     console.log("after the for loop");
     
-    //for loop using number as the counting variable and number = number + 1 as the increment method
+    //Create a for loop using the variable, number, as the counting variable and number = number + 1 as the increment method. Start at number = 0 and output number as long as it is less than 5.
     for (var number = 0; number < 5; number = number + 1) {
         console.log(number); // outputs numbers from 0 to 4
     }
     
-    //Using a for loop to access each array value
+    //Use a for loop to access each Array value. Start at i = 0 and output i and the value of the Array when the index = i. 
     var cities = ["Frankfort", "Louisville", "Lexington"];
     for (var i = 0; i < cities.length; i++) {
         console.log(i); // output the current value of i
-        console.log(cities[i]); // use i to access an index of the Array (the value at the ith position in the array)
+        console.log(cities[i]); // use i to access an index of the Array (the value at the ith position in the Array)
     }
     
-    //Using a for loop to construct an Array of integers from 1 to 10
+    //Use a for loop to construct an Array of integers from 1 to 10
     var newArray = []; // define an empty Array
     for(var i = 0; i < 10; i++){
         newArray[i] = i + 1;
     }
     console.log(newArray); // output will be [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     
-    //Nested for loop
+    //Nested for loop. Start at i = 0 and output i as long as it is less than 5. At each value of i, start at j = 0 and output j as long as it is < 5.
     for (var i = 0; i < 5; i++) {
         console.log('outer loop: ' + i);
         for (var j = 0; j < 5; j++) {
@@ -61,21 +65,28 @@
         }
     }
     
-    //Use a nested for loop to sum values
+    //Use a nested for loop to sum values. Start at i = 0 and add i to the sum as long as i is less than 5. At each value of i, start at j = 0 and add j to the sum as long as j is less than 5. The result will be the sum of each value of i and j throughout the loop //0+0+1+2+3+4+
+    //1+0+1+2+3+4+
+    //2+0+1+2+3+4+
+    //3+0+1+2+3+4+
+    //4+0+1+2+3+4
+    //=60
     var sum = 0;
     for (var i = 0; i < 5; i++) {
+        //console.log('i: ' + i);
+        //console.log('outer loop: ' + sum);        
         for (var j = 0; j < 5; j++) {
             sum += j;
-            //console.log('j: ' + i);
+            //console.log('j: ' + j);
             //console.log('inner loop: ' + sum);
         }
-        sum += i;
-        //console.log('i: ' + i);
-        //console.log('outer loop: ' + sum);
+        sum += i;           
     }
     console.log(sum); // output will be 60.
     
     //while loop, for use when the number of times the loop should be executed is unknown
+    
+    //While i < the number of values in the cities Array (3), output i and the value of the Array at index, i
     var cities = ["Frankfort", "Louisville", "Lexington"];
     var i = 0;
     while (i < cities.length) {
@@ -88,30 +99,36 @@
     var temp = 32;
     if(temp === 32) {
         console.log('the temperature is freezing');
+        //execute the statement because it is true
     }
     
     //if statement that is false
     var temp = 33;
     if(temp === 32) {
         console.log('the temperature is freezing'); //the statement is not executed because the if statement is false
-    }   
+    }
     
     //if and else statements
     var temp = 33;
     if(temp === 32) {
         console.log('the temperature is freezing');
+        //this statement is not executed because the if statement is false
     } else {
         console.log('the temperature is NOT 32, but still may be freezing');
+        //this statement is executed because the if statement is false
     }
     
     //if, else if, and else statements
     var temp = 33;
     if(temp <= 32) {
         console.log('the temperature is freezing');
+        //this statement is not executed because it is false
     } else if(temp > 32) {
         console.log('the temperature is above freezing');
+        //this statement is executed because it is true
     } else {
         console.log('the value of temp must not be a number');
+        //this statement is not executed because the previous statement is true
     }
     
     //if and else statements inside a loop with a break. Increment from 0 to 10. Break (stop) when reaching 5.
@@ -122,21 +139,31 @@
         console.log(i); // output will be 0, 1, 2, 3, 4
     }
     
+    //if and else statements inside a loop with a break. Move log statement before the if statement so it runs before testing if i = 5.
+    for(var i = 0; i <= 10; i++) {
+        console.log(i); // output will be 0, 1, 2, 3, 4, 5        
+        if(i === 5) {
+            break;
+        }
+    }
+    
     //test if a city name is found in an Array
     var cities = ["Frankfort", "Louisville", "Lexington"];
     var testCity = "Louisville";
     for (var i = 0; i <= cities.length; i++) {
         if(cities[i] == testCity) {
             console.log(testCity + " is found in the city Array!");
+            //output this statement because the test city is in the Array
         }
     }
     
-    //test if a city name is found in an Array and return its position in the Array
+    //test if a city name is found in an Array and return the city name and its position in the Array
     var cities = ["Frankfort", "Louisville", "Lexington"];
     var testCity = "Louisville";
     for (var i = 0; i <= cities.length; i++) {
         if(cities[i] == testCity) {
             console.log(testCity + " is found in the city Array at index " + i + "!");
+            //output this statement because the test city is in the Array
         }
     }
     
@@ -146,11 +173,14 @@
     for (var i = 0; i <= cities.length; i++) {
         if(cities[i] == testCity) {
             console.log(testCity + " is found in the city Array at index " + i + "!");
+            //do not output this statement because the test city is not found in the Array
         } else {
             console.log(testCity + " was not found within the Array at index " + i + "!");
+            //output this statement each time it is executed because the test city is not found in the Array
         }
     }
     
+    //Check each year in the Array. If the year is not 2012, list the year. Stop when the year is 2012.
     var years = [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015];
     for(var i = 0; i <= years.length; i++) {
         if(years[i] == 2012) {

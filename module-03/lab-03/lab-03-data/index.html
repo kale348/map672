@@ -83,14 +83,14 @@
         });
         map.addLayer(tiles);
         
-        // BEGIN WRITING CODE FOR LAB 03 HERE
             
         // CITY 1
-        var city1Name = "Lexington";
-        var city1Lat = 38.0297;
-        var city1Lon = -84.4947;
-        var city1Pop = 310797;
-        var city1Capital = false;
+        
+        var city1Name = 'Lexington',  // note how you can declare multiple variables with a single
+            city1Lat = 38.0297,       // var statement and commas between them
+            city1Lon = -84.4947,
+            city1Pop = 308428,
+            city1Capital = false;
         
         // CITY 2
         var city2Name = "Frankfort";
@@ -122,7 +122,7 @@
         
         // CITY1 MARKER CODE HERE
         var city1Popup = "<b>"+city1Name+"</b><br>"
-                        +"<b>population</b>: "+city1Pop;
+                        +"<b>population</b>: "+city1Pop.toLocaleString();
         
         if(city1Capital == true) {
             city1Popup += "<br>Capital of the Commonwealth of Kentucky";   
@@ -133,7 +133,7 @@
         
         // CITY2 MARKER CODE HERE
         var city2Popup = "<b>"+city2Name+"</b><br>"
-                        +"<b>population</b>: "+city2Pop;
+                        +"<b>population</b>: "+city2Pop.toLocaleString();
         
         if(city2Capital == true) {
             city2Popup += "<br>Capital of the Commonwealth of Kentucky";   
@@ -144,7 +144,7 @@
         
         // CITY3 MARKER CODE HERE
         var city3Popup = "<b>"+city3Name+"</b><br>"
-                        +"<b>population</b>: "+city3Pop;
+                        +"<b>population</b>: "+city3Pop.toLocaleString();
         
         if(city3Capital == true) {
             city3Popup += "<br>Capital of the Commonwealth of Kentucky";   

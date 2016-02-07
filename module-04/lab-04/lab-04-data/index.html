@@ -82,20 +82,20 @@
         // begin writing/editing Lab 04 code here
         
         //Identify cities and their coordinates, populations, and state capital status
-        var cities = ["Pittsburgh", "Harrisburg", "Philadelphia"];
-        var cityCoords = [
-            [40.4397, -79.9764], 
-            [40.2697, -76.8756], 
-            [39.9500, -75.1667]
-        ];
-        var cityPops = [305412, 49082, 1560297];
-        var cityCapital = [false, true, false];
+        var cities = ["Pittsburgh", "Harrisburg", "Philadelphia"],
+            cityCoords = [
+                [40.4397, -79.9764], 
+                [40.2697, -76.8756], 
+                [39.9500, -75.1667]
+            ],
+            cityPops = [305412, 49082, 1560297],
+            cityCapital = [false, true, false];
         
         //Loop through each city in the cities Array
         for(var i = 0; i < cities.length; i++) {
             
             //Create a popup with the city name and population
-            var popup = "<b>"+cities[i]+"</b><br>"+"<b>population</b>: "+cityPops[i];
+            var popup = "<b>"+cities[i]+"</b><br>"+"Population: "+cityPops[i].toLocaleString();
             
             //Add "state capital" if the city is the state capital
             if(cityCapital[i] == true) {               

@@ -44,7 +44,6 @@
             font-size: 1em;
             color: #001323;
         }
-        /* Additional style rules go here! */
 
     </style>
 </head>
@@ -61,7 +60,7 @@
         <p>Map authored by Lauren Winkler</p>
         <p>This map contains shows the capital of Pennsylvania (<a href="https://en.wikipedia.org/wiki/Harrisburg,_Pennsylvania">Harrisburg</a>) and the state's two largest cities (<a href="https://en.wikipedia.org/wiki/Philadelphia">Philadelphia</a> and <a href = "https://en.wikipedia.org/wiki/Pittsburgh">Pittsburgh</a>)  on Esri ArcGIS Online's World Street Map basemap. Click a city to view its name and population and see if it is the state capital.</p>
         <p>Population data is from 2014 U.S. Census estimates, accessed from the Census QuickFacts page for each city (<a href="http://quickfacts.census.gov/qfd/states/42/4261000.html">Pittsburgh</a>, <a href="http://quickfacts.census.gov/qfd/states/42/4232800.html">Harrisburg</a>, <a href="http://quickfacts.census.gov/qfd/states/42/4260000.html">Philadelphia</a>).
-        <p>Map data tiles &copy; <a href="https://www.arcgis.com/home/">Esri ArcGIS Online</a> &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012</a>
+        <p>Map data tiles &copy; <a href="https://www.arcgis.com/home/">Esri ArcGIS Online</a> &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012.
         </p>
     </footer>
 
@@ -79,7 +78,6 @@
 });
         map.addLayer(tiles);
         
-        // begin writing/editing Lab 04 code here
         
         //Identify cities and their coordinates, populations, and state capital status
         var cities = ["Pittsburgh", "Harrisburg", "Philadelphia"],
@@ -107,7 +105,6 @@
                 .bindPopup(popup);
         }
         
-        // end writing/editing Lab 04 code here
               
     </script>
     

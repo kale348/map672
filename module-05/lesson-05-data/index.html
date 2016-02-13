@@ -12,7 +12,184 @@
 
 <script>
 /* JavaScript code goes here! */
-
+    
+    //Basic function declaration
+    function helloMap() {
+        console.log("Hello Map");
+    }
+    
+    helloMap(); //this statement calls or invokes the helloMap() function!
+      
+    //Call function multiple times
+    function helloMap() {
+        console.log("Hello Map");
+    }
+    
+    helloMap(); //console output will be Hello Map
+    helloMap(); //console output will be Hello Map
+    helloMap(); //console output will be Hello Map
+    
+    //Hoisting a function, calling it before the function has been declared
+    helloMap(); //this statement calls or invokes the helloMap() function!
+    
+    function helloMap() {
+        console.log("Hello Map");
+    }  
+    
+    //Same function declaration, written as a function expression
+    var helloMap = function() {
+        console.log("Hello Map");
+    };
+    
+    helloMap();
+    
+    //Function expressions must be written before they can be called. They cannot be hoisted like function declarations can be. This code will break.
+    helloMap(); //will throw an error because the function hasn't been declared yet
+    
+    var helloMap = function() {
+        console.log("Hello Map");
+    };
+    
+    //Practical example of using function expressions, when one function is nested inside another one
+    function outerFunction(message) {
+        console.log(message);
+        var innerFunction = function(message) {
+            console.log(message);
+        };
+        innerFunction("I'm inside!");
+    }
+    outerFunction("I'm outside!");
+    
+    //Passing an argument to a function parameter
+    function saySomething(message) { // function signature accepts information as a "parameter"
+        console.log(message);
+    }
+    
+    saySomething("Hello Map"); // function is called, passing an "argument" with it
+    
+    //Passing multiple arguments to the "message" parameter
+    function saySomething(message) {
+        console.log(message);
+    }
+    
+    saySomething("Hello Map");
+    saySomething("Please enter the address you'd like to search for.");
+    
+    //Using variables (firstMessage and secondMessage) to store the arguments being passed to the "message" parameter
+    function saySomething(message) {
+        console.log(message);
+    }
+    
+    var firstMessage = "Hello Map";
+    saySomething(firstMessage);
+    
+    var secondMessage = "Please enter the address you'd like to search for.";
+    saySomething(secondMessage);
+    
+    //Using the same variable name for the arguments being passed to the function as the name used for the function parameter
+    function saySomething(message) {
+        console.log(message);
+    }
+    
+    var message = "Hello Map";
+    saySomething(message);
+    
+    message = "Please enter the address you'd like to search for.";
+    saySomething(message);
+    
+    //Function to calculate the area of a rectangle
+    function calcAreaRect(width,height) {
+        var area = width * height;
+        console.log(area);
+    }
+    
+    //Declaring and calling the function to calculate the area of a rectangle
+    function calcAreaRect(width,height) {
+        var area = width * height;
+        console.log(area);
+    }
+    
+    calcAreaRect(40,30); //output will be 1200    
+    
+    //Using variables to pass arguments to the area function
+    function calcAreaRect(width,height) {
+        var area = width * height;
+        console.log(area);
+    }
+    
+    var width = 40;
+    var height = 30;
+    calcAreaRect(width,height); //output will be 1200
+    
+    //Function parameter values are assigned in the order they reach the function. peanutButter = width because it's the first value in the function call and the first value in the argument within the function declaration.
+    function calcAreaRect(width,height) {
+        var area = width * height;
+        console.log(area);
+    }
+    
+    var peanutButter = 40;
+    var jelly = 30;
+    calcAreaRect(peanutButter,jelly); //output will be 1200
+    
+    //Returning the area value back to the statement that called it and assigning it to a variable
+    function calcAreaRect(width,height) {
+        var area = width * height;
+        return area;
+    }
+    
+    var calculatedArea = calcAreaRect(40,30); //the returned value of area is assigned to the new variable, calculatedArea
+    console.log(calculatedArea); //output will be 1200
+    
+    //Statements in a function's body written below a return statement will not be executed
+    function sayThings() {
+        console.log("thing 1"); //will output to console
+        console.log("thing 2"); //will output to console
+        return; //returns an undefined value
+        console.log("thing 3"); // will NOT output to console because it's after the return statement
+    }
+    
+    sayThings();
+    
+    //Return multiple values by putting them in an Array and returning the Array
+    function getMultiValues() {
+        var value1 = 5;
+        var value2 = "iguana";
+        return [value1, value2];
+    }
+    
+    var values = getMultiValues();
+    console.log(values[0]); //output is 5
+    console.log(values[1]); //output is "iguana"
+    
+    //Function scope error
+    function sayHello() {
+        var greeting = "Hi, I'm a web mapper.";
+        console.log(greeting);
+    }
+    
+    sayHello(); //function call, output is "Hi, I'm a web mapper."
+    console.log(greeting); // throws an error because greeting is not defined outside of the function block
+    
+    //Defining a variable with the same name inside and outside of a function, for different purposes. Since "greeting" has no meaning outside of the function, it can be used to hold a different value.
+    function sayHello() {
+        var greeting = "Hi, I'm a web mapper.";
+        console.log(greeting); //output is "Hi, I'm a web mapper."
+    }
+    
+    sayHello(); //calls the sayHello() function and outputs "Hi, I'm a web mapper".
+    
+    var greeting = "Howdy, I'm a cartographer."; //variable defined within the global scope
+    console.log(greeting); //output is "Howdy, I'm a cartographer."
+    
+    //Global variables are accessible within the local scope of a function. The definition of "greeting" is accessible within the function.
+    function sayHello() {
+        console.log(greeting);
+    }
+    
+    var greeting = "Howdy, I'm a cartographer"; //variable defined within the global scope
+    
+    sayHello(); // output is "Howdy, I'm a cartographer"
+    
 </script>
     
 </body>

@@ -60,7 +60,7 @@
 
     <footer>
         <p>Map authored by Lauren Winkler</p>
-        <p>This map shows the population density of the capital of Kentucky (<a href="https://en.wikipedia.org/wiki/Frankfort,_Kentucky">Frankfort</a>) and the state's two largest cities (<a href="https://en.wikipedia.org/wiki/Louisville,_Kentucky">Louisville</a> and <a href = "https://en.wikipedia.org/wiki/Lexington,_Kentucky">Lexington</a>) in people per square mile or people per square kilometer. Click a city to view its name and population density.</p>
+        <p>This map shows the population density of the capital of Kentucky (<a href="https://en.wikipedia.org/wiki/Frankfort,_Kentucky">Frankfort</a>) and the state's two largest cities (<a href="https://en.wikipedia.org/wiki/Louisville,_Kentucky">Louisville</a> and <a href = "https://en.wikipedia.org/wiki/Lexington,_Kentucky">Lexington</a>) in people per square mile or people per square kilometer. The map will prompt you to enter the area of each city and then choose the population density units (miles or km). Once the cities display on the map, click a city to view its name and population density.</p>
         <p>Population data is from 2014 U.S. Census estimates, accessed from the Wikipedia page for each city. The population of Louisville is the <a href="https://en.wikipedia.org/wiki/Louisville/Jefferson_County_metro_government_(balance),_Kentucky">consolidated city-county</a> population, representing the Louisville metro area. Since the Census Bureau reports the area of the consolidated city-county, using this population makes it easier to verify the population density.</p>
     </footer>
 
@@ -103,6 +103,14 @@
         ];
         var cityPops = [308428, 760026, 27557];
         var cityAreas = [lexArea, louArea, fraArea];
+               
+        for(i = 0; i < cityAreas.length; i++) {
+            
+            while(isNaN(cityAreas[i])) {
+                console.log("Area of " + cities[i] + " is not a number");
+                cityAreas[i] =  Number(prompt("Enter data","Enter the area of " + cities[i] + " in square miles"));
+            }
+        }
 
         // Call the mapCities function, passing the 4 arrays created above as arguments
         mapCities(cities, cityCoords, cityPops, cityAreas);
@@ -113,15 +121,19 @@
     function mapCities(cities, cityCoords, cityPops, cityAreas) { /* include 2 more parameters here */
 
         var units = prompt('Units for calculating density', 'Enter "miles" or "km"');
+        while(units != "miles" && units != "km") {
+            console.log("Invalid units");
+            units =  prompt('Units for calculating density', 'Enter "miles" or "km"');
+        }
 
         for(var i = 0; i < cities.length; i++) {
 
             /*var density =  call a function named calcPopDensity here, passing the city population, area, and units as arguments, and assign return value to the "density" variable */
             var density = calcPopDensity(cityPops[i],cityAreas[i],units);
-
+            
             var popup = "<b>"+cities[i]+"</b><br>"
-                       +"<b>Density</b>: "+density.toLocaleString()+" people per sq " + units;
-
+                   +"<b>Density</b>: "+density.toLocaleString()+" people per sq " + units;
+            
             L.marker(cityCoords[i]).addTo(map)
                 .bindPopup(popup);
 
@@ -130,10 +142,10 @@
 
     // Define the calcPopDensity function which accepts three arguments, the population, the area of a single city, and the units ('miles' or 'km') entered by the user above. The function should calculate the density of the city with these two values and return the result to where the function was called.
     function calcPopDensity(cityPops,cityAreas,units){
-        
+              
         if(units == "miles") {
             var density = cityPops/cityAreas;
-        }
+        } 
         else { //units = km
             var density = (cityPops/cityAreas)/2.58999; //1 sq mi = 2.58999 sq km
         }

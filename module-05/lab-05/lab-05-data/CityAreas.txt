@@ -1,0 +1,5 @@
+City Areas in square miles
+
+Lexington - 285.5
+Louisville - 399
+Frankfort - 14.63

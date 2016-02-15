@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8 />
-    <title>Lab 06 Starter Template</title>
+    <title>AFC North Cities</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -44,8 +44,17 @@
             font-size: 1em;
             color: #001323;
         }
-        .kentucky-blue {
-            color: #165bb6;
+        .pa-gold {
+            color: #FFB612;
+            /* Source: http://teamcolorcodes.com/pittsburgh-steelers-color-codes/ */
+        }
+        .oh-orange {
+            color: #FB4F14;
+            /* Source: http://teamcolorcodes.com/cincinnati-bengals-color-codes/ */
+        }
+        .md-purple {
+            color: #280353;
+            /* Source: http://teamcolorcodes.com/baltimore-ravens-color-codes/ */           
         }
         
     </style>
@@ -53,8 +62,8 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>AFC North Cities</h1>
+        <h2>Cities in the NFL's AFC North Division</h2>
     </header>
 
     <div id='map'></div>
@@ -69,8 +78,8 @@
     <script>
 
         var map = L.map('map', {
-            center: [38.96,-85.36],
-            zoom: 8,
+            center: [40.3,-80],
+            zoom: 7,
         });
        
         var tiles = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
@@ -81,18 +90,76 @@
         
         // Begin writing/modifying code for Lab 06 here
         
+        // Create cities array containing three objects
         var cities = [
-             {
-                 name: "Louisville",
-                 properties: {
-                     coordinates: [38.25, -85.7667],
-                     population: 756832,
-                     state: "KY"
-                 }
-             }    
+            {
+                name: "Pittsburgh",
+                properties: {
+                    coordinates: [40.4397, -79.9764],
+                    population: 305841,
+                    state: "PA"
+                }
+            },
+            {
+                name: "Cincinnati",
+                properties: {
+                    coordinates: [39.1000, -84.5167],
+                    population: 297517,
+                    state: "OH"
+                }
+            },
+            {
+                name: "Baltimore",
+                properties: {
+                    coordinates: [39.2833, -76.6167],
+                    population: 622104,
+                    state: "MD"
+                }
+            },
+            {
+                name: "Cleveland",
+                properties: {
+                    coordinates: [41.4822, -81.6697],
+                    population: 390113,
+                    state: "OH"
+                }
+            }             
         ];
-            
         
+        //Loop through the city objects and create a popup marker for each city.
+        for (i = 0; i < cities.length; i++) {
+            
+            var props = cities[i].properties;
+            
+            var popup = buildPopup(cities[i].name, props.population, props.state);
+            
+            L.marker(props.coordinates).addTo(map)
+                    .bindPopup(popup);
+            
+            //console.log(cities[i].properties);
+            //console.log(cities[i].name);
+            //console.log("Population: " + cities[i].properties.population);
+            //console.log("Latitude: " + cities[i].properties.coordinates[0]);
+            //console.log("Longitude: " + cities[i].properties.coordinates[1]);
+            //console.log(props);
+        } 
+    
+        //Build the popup to assign a specific text color for each state. Return the HTML string for the popup with the correct color and the city's name and population.
+        function buildPopup(name, pop, state) {
+            
+            if(state == "PA") {
+                var colorClass = "pa-gold";
+            }
+            if(state == "OH") {
+                var colorClass = "oh-orange";
+            }
+            if(state == "MD") {
+                var colorClass = "md-purple";
+            }
+            
+            return "<div class='"+colorClass+"'><b>"+name+"</b><br>"+
+                   "<b>Population</b>: "+pop.toLocaleString()+"<div>";
+        }
           
     </script>
     

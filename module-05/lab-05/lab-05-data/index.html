@@ -120,11 +120,10 @@
     // Define the mapCities function that prompts the user for the density units (miles or km), calls the calcPopDensity function to calculate the population density, and prepares a popup for each city with its name and its population density in the units provided by the user (miles or km)
     function mapCities(cities, cityCoords, cityPops, cityAreas) { /* include 2 more parameters here */
 
-        var units = prompt('Units for calculating density', 'Enter "miles" or "km"');
-        while(units != "miles" && units != "km") {
-            console.log("Invalid units");
-            units =  prompt('Units for calculating density', 'Invalid units. Enter "miles" or "km"');
-        }
+        do {
+             var units = prompt('Enter the units for calculating density', 'Enter "miles" or "km"');
+             
+        } while (units != "miles" && units != "km")
 
         for(var i = 0; i < cities.length; i++) {
 

@@ -64,8 +64,47 @@
 
     <script>
 
-      // build your Leaflet map here!
-                  
+      // build your Leaflet map here!      
+        
+        /*
+        // Initialize the map on the "map" div with a given center and zoom
+        var map = L.map('map', {
+            center: [51.505, -0.09],
+            zoom: 13
+        });      
+        
+        // Initialize the map using the L.latLng method
+        var mapCenter = L.latLng(38.0489, -96.5025); // defining a variable using L.latLng()
+        
+        var map = L.map('map', {
+            center: mapCenter, // using this variable to center our map
+            zoom: 4
+        });
+        
+        // Use the L.latLng() method to define two points and calculate the distance between them in meters
+        var mapCenter = L.latLng(38.0849, -96.5025);
+        var otherCity = L.latLng(38.1489, -96.5125);
+        var distance = mapCenter.distanceTo(otherCity);
+        console.log(distance); // will output the distance between the cities in meters
+        
+        // Create an options variable to store an object with the map's options
+        var options = {
+            center: [38.0849, -96.5025],
+            zoom: 4
+        }
+            
+        var map = L.map('map', options);
+        */
+        
+        // Initialize the map and add minZoom and maxZoom options
+        var options = {
+            center: [38.0489, -96.5025],
+            zoom: 4, // initial zoom level
+            minZoom: 4,
+            maxZoom: 7
+        }
+        var map = L.map('map', options);
+        
     </script>
     
 </body>

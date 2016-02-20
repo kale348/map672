@@ -147,7 +147,7 @@
             var density = cityPops/cityAreas;
         } 
         else { //units = km
-            var density = (cityPops/cityAreas)/2.58999; //1 sq mi = 2.58999 sq km
+            var density = cityPops/(cityAreas * 2.58999); //1 sq mi = 2.58999 sq km
         }
         
         return density;

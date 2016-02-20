@@ -108,7 +108,7 @@
             
             while(isNaN(cityAreas[i])) {
                 console.log("Area of " + cities[i] + " is not a number");
-                cityAreas[i] =  Number(prompt("Enter data","Enter the area of " + cities[i] + " in square miles"));
+                cityAreas[i] =  Number(prompt("Invalid area","Enter the area of " + cities[i] + " in square miles"));
             }
         }
 
@@ -123,7 +123,7 @@
         var units = prompt('Units for calculating density', 'Enter "miles" or "km"');
         while(units != "miles" && units != "km") {
             console.log("Invalid units");
-            units =  prompt('Units for calculating density', 'Enter "miles" or "km"');
+            units =  prompt('Units for calculating density', 'Invalid units. Enter "miles" or "km"');
         }
 
         for(var i = 0; i < cities.length; i++) {

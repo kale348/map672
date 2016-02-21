@@ -70,7 +70,7 @@
 
     <footer>
         <p>Map authored by Lauren Winkler</p>
-        <p>This map contains the cities of the NFL's AFC North division teams: Pittsburgh, Cincinnati, Baltimore, and Cleveland. Click a city to view its name and population, in its winningest team's colors. (I contemplated excluding Cleveland, because the Browns finished in last place in the division, but decided to add a fourth city object to include it. Since Cleveland is also in Ohio, its popup text is the same color as Cincinnati's).</p>
+        <p>This map contains the cities of the NFL's AFC North division teams: Pittsburgh, Cincinnati, Baltimore, and Cleveland. Click a city to view its name and population, in its winningest team's colors. (I contemplated excluding Cleveland, because the Browns finished in last place in the division, but decided to add a fourth city object to include it. Since Cleveland is also in Ohio, its popup text is the same color as Cincinnati's.)</p>
         <p>Coordinates come from a Google search for each city's name and coordinates (e.g. <a href="https://www.google.com/search?q=pittsburgh+coordinates&spell=1&sa=X&ved=0ahUKEwjL_8vYn_nKAhWHzz4KHbxmCzQQvwUIGigA#">"Pittsburgh coordinates"</a>). Population data comes from 2013 U.S. Census Bureau estimates, accessed from a Google search for each city's name and population (e.g. <a href="https://www.google.com/search?q=pittsburgh+coordinates&spell=1&sa=X&ved=0ahUKEwjL_8vYn_nKAhWHzz4KHbxmCzQQvwUIGigA#q=pittsburgh+population">"Pittsburgh population"</a>). Popup text colors come from <a href="http://teamcolorcodes.com/nfl-team-color-codes/">http://teamcolorcodes.com/</a>.</p>
     </footer>
 
@@ -89,7 +89,7 @@
         
         // Begin writing/modifying code for Lab 06 here
         
-        // Create cities array containing three objects
+        // Create cities array containing the objects
         var cities = [
             {
                 name: "Pittsburgh",
@@ -125,7 +125,7 @@
             }             
         ];
         
-        //Loop through the city objects and create a popup marker for each city.
+        // Loop through the city objects and create a popup marker for each city
         for (i = 0; i < cities.length; i++) {
             
             var props = cities[i].properties;
@@ -135,6 +135,8 @@
             L.marker(props.coordinates).addTo(map)
                     .bindPopup(popup);
             
+            // Log each value in the cities array and various properties of each city
+            //console.log(cities[i]);
             //console.log(cities[i].properties);
             //console.log(cities[i].name);
             //console.log("Population: " + cities[i].properties.population);
@@ -143,16 +145,16 @@
             //console.log(props);
         } 
     
-        //Build the popup to assign a specific text color for each state. Return the HTML string for the popup with the correct color and the city's name and population.
+        //Build the popup to assign a specific text color to each city, based on its state. Return the HTML string for the popup with the correct color and the city's name and population.
         function buildPopup(name, pop, state) {
             
             if(state == "PA") {
                 var colorClass = "pa-gold";
             }
-            if(state == "OH") {
+            else if(state == "OH") {
                 var colorClass = "oh-orange";
             }
-            if(state == "MD") {
+            else if(state == "MD") {
                 var colorClass = "md-purple";
             }
             

@@ -313,7 +313,7 @@
     console.log(result); //output is still 1.87
     
     
-    //Store information in an object and pass that object as an argument of another object's method. Pass information about Lexington to the invasionPlans method of the iguana object.
+    //Store information in an object and pass that object as an argument of another object's method. Pass information about Lexington stored in the lexData object to the invasionPlans method of the iguana object.
     var iguana = { 
         name: "Jack", 
         weight: 4.2, 
@@ -349,14 +349,14 @@
     console.log(cityNameCaps); //output is LEXINGTON
     
     
-    //charAt() method for a string object to return the character at the specified index
-    //indexOf() method for a string object to return the index of the specified character
+    //charAt() method for a string object, used to return the character at the specified index
+    //indexOf() method for a string object, used to return the index of the specified character
     var cityName = "Lexington";
     console.log(cityName.charAt(4)); //returns the string character at index 4, "n" (returns the 5th character, the first letter is index 0)
-    console.log(cityName.indexOf("x")); //returns the index of the first "x" found, 2
+    console.log(cityName.indexOf("x")); //returns the index of the first "x" found, 2 (the first character is index 0)
     
     
-    //toLocaleString() method for a numeric object to format it with commas and limit the number of decimal places returned
+    //toLocaleString() method for a numeric object, used to format the number with commas and limit the number of decimal places returned
     var pop = 1200000;
     var area = 683.23;
     var density = pop/area;
@@ -368,14 +368,15 @@
     console.log(output); // output is 1,756.337
     
     
-    //push() and pop)() array methods to push a new element to the end of an array and remove the last item from the array, respectively
+    //push() and pop)() array methods
+    //push() adds (pushes) a new element to the end of an array
+    //pop() removes the last item from the array
     var cities = ["Lexington", "Bowling Green"];
     console.log(cities); //output is ["Lexington", "Bowling Green"]
     cities.push("Frankfort");
     console.log(cities); //output is ["Lexington", "Bowling Green", "Frankfort"]
     cities.pop();
     console.log(cities); //output is ["Lexington", "Bowling Green"]
-    
     
     
 </script>

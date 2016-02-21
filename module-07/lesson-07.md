@@ -66,6 +66,20 @@ var map = L.map('map', {
 });
 ```
 
+**NOTE:** This lesson will detail the Leaflet API map and methods. We'll discuss the `L.tileLayer` below, but you may wish to include a tile layer through these examples to better "see" the map (zoom levels, centering, etc). So you'd want to include the code snippet that requests the web map tiles and adds them to the map. For example:
+
+```javascript
+var map = L.map('map', {
+    center: [51.505, -0.09],
+    zoom: 13
+});
+var tiles = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    });    
+map.addLayer(tiles);
+```
+
 We recognize the `var map`, which is JavaScript's way of declaring a variable. So far in this course, we've been assigning various data types to variables: boolean, string, or number values, or more complex data structures such as an array or even a function. But what is being assigned here to the variable `map`?
 
 The capital letter `L` stands for `Leaflet`, and is a top-level object (or "class" as stated above) from which all of Leaflet's awesome functionality is accessed. Do you recognize what follows the `L` (i.e., a dot, connecting an object to a name followed by two parentheses)? If we remove the method's arguments for a moment it may be more familiar:

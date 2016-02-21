@@ -49,68 +49,498 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>Lesson 7 Examples</h1>
+        <h2>Iguana Restaurants in Salt Lake City</h2>
     </header>
 
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by YOUR NAME</p>
-        <p>Additional information about the data and map goes here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl.
-        </p>
+        <p>Map authored by Lauren Winkler</p>
+        <p>This example displays a layer group of two circles, one red circle centered at the Red Iguana Restaurant with a 400 meter radius, and one blue circle centered at the Blue Iguana Restaurant with a 300 meter radius. Hovering over each circle changes its color to yellow. Hovering off of the circle restores it to its original color (red or blue). Earlier examples from lesson 7 are commented out.</p>
     </footer>
 
     <script>
 
-      // build your Leaflet map here!      
+      // build your Leaflet map here!  
         
         /*
         // Initialize the map on the "map" div with a given center and zoom
         var map = L.map('map', {
             center: [51.505, -0.09],
             zoom: 13
-        });      
+        });
         
-        // Initialize the map using the L.latLng method
-        var mapCenter = L.latLng(38.0489, -96.5025); // defining a variable using L.latLng()
+        // Add tiles
+        var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        });
+        map.addLayer(tiles);
+        
+        
+        // Use the L.latLng() method to determine the map center coordinates
+        var mapCenter = L.latLng(38.0489,-96.5025) // defining a variable using L.latLng()
         
         var map = L.map('map', {
             center: mapCenter, // using this variable to center our map
             zoom: 4
         });
         
-        // Use the L.latLng() method to define two points and calculate the distance between them in meters
-        var mapCenter = L.latLng(38.0849, -96.5025);
-        var otherCity = L.latLng(38.1489, -96.5125);
-        var distance = mapCenter.distanceTo(otherCity);
-        console.log(distance); // will output the distance between the cities in meters
-        
-        // Create an options variable to store an object with the map's options
-        var options = {
-            center: [38.0849, -96.5025],
-            zoom: 4
-        }
-            
-        var map = L.map('map', options);
-        */
-        
-        // Initialize the map and add minZoom and maxZoom options
-        var options = {
-            center: [38.0489, -96.5025],
-            zoom: 4, // initial zoom level
-            minZoom: 4,
-            maxZoom: 7
-        }
-        var map = L.map('map', options);
-      
-       var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+        // Add tiles
+        var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
             subdomains: 'abcd',
             maxZoom: 19
         });
         map.addLayer(tiles);
+        
+        // Use the L.latLng() method to calculate the distance between two points
+        var mapCenter = L.latLng(38.0489, -96.5025);
+        var otherCity = L.latLng(38.1489, -96.5125);
+        var distance = mapCenter.distanceTo(otherCity);
+        console.log(distance); // will output the distance between the two cities in meters
+        
+        
+        // Create a variable to store the map options
+        var options = {
+            center: [38.0489, -96.5025],
+            zoom: 4
+        };
+        var map = L.map('map', options);
+        
+        // Add tiles
+        var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        });
+        map.addLayer(tiles);
+        
+        
+        // Override the default values for minZoom and maxZoom by including them in the map options object
+        var options = {
+            center: [38.0489, -96.5025],
+            zoom: 4, // initial zoom level
+            minZoom: 4,
+            maxZoom: 7
+        };
+        var map = L.map('map', options);
+        
+        // Add tiles
+        var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        });
+        map.addLayer(tiles);
+        
+        
+        // Disable panning by setting the dragging option to false. Disable zooming by setting the zoomControl option to false.
+        var options = {
+            center: [38.0489, -96.5025],
+            zoom: 4,
+            minZoom: 4,
+            maxzoom: 7,
+            dragging: false,
+            zoomControl: false,
+        };
+        var map = L.map('map', options);
+        
+        // Add tiles
+        var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        });
+        map.addLayer(tiles);
+        
+        
+        // Initialize the map on the "map" div with a given center and zoom
+        var map = L.map('map', {
+            center: [51.505, -0.09],
+            zoom: 13
+        });
+        
+        // Add tiles
+        var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        });
+        map.addLayer(tiles);
+        
+        // Create basic user interaction event
+        map.on('click', function(e) {
+            console.log(e.latlng);
+        })
+        
+        
+        // Use the setView() method to set the map center and zoom level
+        var map = L.map('map'); // no map options
+        map.setView([38.0489, -96.5025], 4);
+        
+        // Add tiles
+        var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        });
+        map.addLayer(tiles);
+        
+        
+        // Initialize the map on the "map" div with a given center and zoom
+        var map = L.map('map', {
+            center: [38.0489, -96.5025],
+            zoom: 4
+        });    
+        
+        // Add tiles
+        var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        });
+        map.addLayer(tiles);
+        
+        // Call methods to get the map center, zoom level, and bounds
+        var center = map.getCenter();
+        console.log(center); // returns a LatLng object
+        var zoom = map.getZoom();
+        console.log(zoom); // returns a Number
+        var bounds = map.getBounds();
+        console.log(bounds); // returns a LatLngBounds object
+        
+        // Output the specific latitude and longitude values
+        var center = map.getCenter();
+        console.log(center.lat, center.lng); // outputs the specific latitude and the longitude values
+        
+        // Output the specific latitude and longitude bounding values
+        console.log(bounds._southWest.lat); // not intended in Leaflet because the bounding coordinates start with an underscore
+        
+        // Access individual latitude and longitude bounding values in the current viewport
+        var bounds = map.getBounds(); // returns the LatLngBounds objecct
+        var bottomLeft = bounds.getSouthWest(); // returns a LatLng object
+        console.log(bottomLeft.lat, bottomLeft.lng); // output the lat and lng values of the bottom left corner of the map
+        
+        
+        // Initialize the map on the "map" div with a given center and zoom
+        var map = L.map('map', {
+            center: [38.0489, -96.5025],
+            zoom: 4
+        });    
+        
+        // Add OpenStreetMap Mapnik tile basemap
+        var tiles = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        })
+        map.addLayer(tiles);
+        
+        
+        // Initialize the map on the "map" div with a given center and zoom
+        var map = L.map('map', {
+            center: [38.0489, -96.5025],
+            zoom: 4
+        });    
+        
+        // Add Esri_WorldGrayCanvas tile basemap
+        var Esri_WorldGrayCanvas = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	       attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	       maxZoom: 16
+        });
+        map.addLayer(Esri_WorldGrayCanvas);
+        
+        
+        // Create a map
+        var map = L.map('map', {
+            center: [38.0297, -84.4947],
+            zoom: 7
+        });
+        
+        // Use the marker() method to add a marker to the map
+        L.marker([38.0297, -84.4947]).addTo(map); // places a marker on Lexington
+        
+        // Add Esri_WorldGrayCanvas tile basemap
+        var Esri_WorldGrayCanvas = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	       attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	       maxZoom: 16
+        });
+        map.addLayer(Esri_WorldGrayCanvas);
+        
+        
+        // Create a map
+        var map = L.map('map', {
+            center: [38.0489, -96.5025],
+            zoom: 4
+        });
+        
+        // Add Esri_WorldGrayCanvas tile basemap
+        var Esri_WorldGrayCanvas = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	       attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	       maxZoom: 16
+        });
+        map.addLayer(Esri_WorldGrayCanvas);
+        
+        // Put a marker on the map with no options
+        var redIguanaLocation = L.latLng(40.7718, -111.9124);
+        var redIguanaMarker = L.marker(redIguanaLocation);
+        redIguanaMarker.addTo(map);
+        
+        
+        // Create a map
+        var map = L.map('map', {
+            center: [38.0489, -96.5025],
+            zoom: 4
+        });
+        
+        // Add Esri_WorldGrayCanvas tile basemap
+        var Esri_WorldGrayCanvas = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	       attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	       maxZoom: 16
+        });
+        map.addLayer(Esri_WorldGrayCanvas);
+        
+        // Put a marker on the map with options
+        var redIguanaLocation = L.latLng(40.7718, -111.9124);
+        var redIguanaMarker = L.marker(redIguanaLocation, {
+            draggable: true,
+            opacity: .4,
+            title: "Red Iguana Restaurant"
+        });
+        redIguanaMarker.addTo(map);
+        
+        
+        // Create a map
+        var map = L.map('map', {
+            center: [38.0489, -96.5025],
+            zoom: 4
+        });
+        
+        // Add Esri_WorldGrayCanvas tile basemap
+        var Esri_WorldGrayCanvas = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	       attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	       maxZoom: 16
+        });
+        map.addLayer(Esri_WorldGrayCanvas);
+        
+        // Put a draggable marker on the map and use the getLatLng() method to add its coordinates to the console as the user drags it
+        var redIguanaLocation = L.latLng(40.7718, -111.9124);
+        var redIguanaMarker = L.marker(redIguanaLocation, {
+            draggable: true,
+        });
+        redIguanaMarker.addTo(map);
+        redIguanaMarker.on('drag', function(e) {
+            console.log(e.target.getLatLng());
+        })
+        
+        
+        // Create a map
+        var map = L.map('map', {
+            center: [38.0489, -96.5025],
+            zoom: 4
+        });
+        
+        // Add Esri_WorldGrayCanvas tile basemap
+        var Esri_WorldGrayCanvas = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	       attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	       maxZoom: 16
+        });
+        map.addLayer(Esri_WorldGrayCanvas);
+        
+        // Add a popup to the marker
+        var redIguanaLocation = L.latLng(40.7718, -111.9124);
+        var redIguanaMarker = L.marker(redIguanaLocation);
+        redIguanaMarker.addTo(map);
+        redIguanaMarker.bindPopup("Best Mexican food in Salt Lake City!");
+        
+        // Create a marker, add it to the map, and give it a popup
+        //L.marker([40.21, -88.154]).addTo(map).bindPopup("popup");
+        
+        // Create a marker, add it to the map, and give it a popup, verbose versoin
+        var city = L.marker([40.21, -88.154]);
+        city.addTo(map);
+        city.bindPopup("popup");
+        */
+        
+        /*
+        // Create a map
+        var map = L.map('map', {
+            center: [40.7718, -111.9124],
+            zoom: 13
+        });
+        
+        // Add Esri_WorldGrayCanvas tile basemap
+        var Esri_WorldGrayCanvas = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	       attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	       maxZoom: 16
+        });
+        map.addLayer(Esri_WorldGrayCanvas);
+        */
+        
+        /*
+        // Create a 400 meter circle around the Red Iguana location
+        var redIguanaLocation = L.latLng(40.7718, -111.9124);
+        var redIguanaCircle = L.circle(redIguanaLocation, 400);
+        redIguanaCircle.addTo(map);
+        */
+        
+        /*
+        // Change the circle color
+        var redIguanaLocation = L.latLng(40.7718, -111.9124);
+        var redIguanaCircle = L.circle(redIguanaLocation, 400, {
+            color: "#d72b1e", // changes the stroke color
+            fillColor: "#d72b1e" // changes the fill color
+        });
+        redIguanaCircle.addTo(map);
+        */
+        
+        /*
+        // Change the style of the circle after creating it using the setStyle() method
+        var redIguanaLocation = L.latLng(40.7718, -111.9124);
+        var redIguanaCircle = L.circle(redIguanaLocation, 400); //don't set any other options here, they will be set later using setStyle()
+        redIguanaCircle.addTo(map);
+        
+        redIguanaCircle.setStyle({
+            color: "#d72b1e", // sets stroke color to red
+            weight: 15, // sets the stroke width to 15 pixels
+            fillColor: "#d72b1e", // sets fill color to red
+            fillOpacity: 1 // sets the fill opacity to 1 (100%)
+        });
+        */
+        
+        /*
+        // Create an empty circle object and then give it a location and radius
+        var redIguanaLocation = L.latLng(40.7718, -111.9124);
+        var redIguanaCircle = L.circle();
+        redIguanaCircle.setLatLng(redIguanaLocation);
+        redIguanaCircle.setRadius(400);
+        redIguanaCircle.addTo(map);
+        */
+        
+        /*
+        // Create an empty layer group called iguanaRestaurants and fill it with two circles
+        var iguanaRestaurants = L.layerGroup();
+        var redIguana = L.circle([40.7718, -111.9124], 400);
+        redIguana.addTo(iguanaRestaurants);
+        var blueIguana = L.circle([40.7657, -111.8930], 300);
+        blueIguana.addTo(iguanaRestaurants);
+        iguanaRestaurants.addTo(map);
+        */
+        
+        /*
+        // Loop through the iguanaRestaurants layer group and log the layer names to the console
+        var iguanaRestaurants = L.layerGroup();
+        var redIguana = L.circle([40.7718, -111.9124], 400);
+        redIguana.addTo(iguanaRestaurants);
+        var blueIguana = L.circle([40.7657, -111.8930], 300);
+        blueIguana.addTo(iguanaRestaurants);
+        iguanaRestaurants.addTo(map);
+        
+        iguanaRestaurants.eachLayer(function(layer) {
+            console.log(layer);
+        });
+        */
+        
+        /*
+        // Add mouseover event to each layer in the layer group
+        var iguanaRestaurants = L.layerGroup();
+        var redIguana = L.circle([40.7718,-111.9124], 400);
+        redIguana.addTo(iguanaRestaurants);
+        var blueIguana = L.circle([40.7657, -111.8930], 300);
+        blueIguana.addTo(iguanaRestaurants);
+        iguanaRestaurants.addTo(map);
+        
+        iguanaRestaurants.eachLayer(function(layer) {
+            layer.on('mouseover', function(e) {
+                e.target.setStyle({
+                    color: 'yellow',
+                    fillColor: 'yellow'
+                });
+            });
+            layer.on('mouseout', function(e) {
+                e.target.setStyle({
+                    color: '#03f',
+                    fillColor: '#03f'
+                });
+            });
+        });
+        */
+        
+        // Create a map centered at 40.7718, -111.9124 with a zoom level of 13 (a city-wide scale)
+        var map = L.map('map', {
+            center: [40.7718, -111.9124],
+            zoom: 13
+        });
+        
+        // Add the Esri_WorldGrayCanvas tile basemap
+        var Esri_WorldGrayCanvas = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	       attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	       maxZoom: 16
+        });
+        map.addLayer(Esri_WorldGrayCanvas);
+        
+        // Create a layer group called iguanaRestaurants
+        var iguanaRestaurants = L.layerGroup();
+        
+        // Set an object of outline and fill color options for the redIguana circle
+        var redIguanaOptions = {
+            color: 'red',
+            fillColor: 'red'
+        };
+        
+        // Set an object of outline and fill color options for the blueIguana circle
+        var blueIguanaOptions = {
+            color: '#03f',
+            fillColor: '#03f'
+        };
+        
+        // Create the redIguana circle centered at 40.7718,-111.9124, with a radius of 400 meters, and the outline and fill color options defined in the redIguanaOptions object (red outline and fill)
+        var redIguana = L.circle([40.7718,-111.9124], 400, redIguanaOptions);
+        
+        // Define the color of the redIguana object to be able to access it layer in the mouseout event (when the user hovers off of the redIguana circle)
+        redIguana.color = 'red';
+        
+        // Add the redIguana circle to the iguanaRestaurants layer group
+        redIguana.addTo(iguanaRestaurants);
+        
+        // Create the blueIguana circle centered at 40.7657,-111.8930, with a radius of 300 meters, and the outline and fill color options defined in the blueIguanaOptions object (blue outline and fill)
+        var blueIguana = L.circle([40.7657,-111.8930], 300, blueIguanaOptions);
+        
+        // Define the color of the blueIguana object to be able to access it layer in the mouseout event (when the user hovers off of the blueIguana circle)
+        blueIguana.color = 'blue';
+        
+        // Add the blueIguana circle to the iguanaRestaurants layer group
+        blueIguana.addTo(iguanaRestaurants);
+        
+        // Add the iguanaRestaurants layer to the map
+        iguanaRestaurants.addTo(map);
+        
+        // Look through the two layers (circles) in the iguanaRestaurants layer group
+        iguanaRestaurants.eachLayer(function(layer) {
+            // When the user hovers over a circle, set its outline and fill color to yellow
+            layer.on('mouseover', function(e) {
+                e.target.setStyle({
+                    color: 'yellow',
+                    fillColor: 'yellow'
+                });
+            });
+            
+            // When the user hovers off of a circle, change its outline and fill colors back to the original colors set in their respective object options
+            layer.on('mouseout', function(e) {
+                
+                // If the circle's color is red, change the color and fill back to the values set in the redIguanaOptions object (red outline and fill)
+                if(e.target.color == 'red') {
+                    e.target.setStyle(redIguanaOptions);
+                    
+                // Otherwise, if the circle's color is blue, change the color and fill back to the values set in the blueIguanaOptions object (blue outline and fill)
+                } else if (e.target.color == 'blue') {
+                    e.target.setStyle(blueIguanaOptions);
+                }
+            });
+        });
+        
         
     </script>
     

@@ -9,8 +9,29 @@ This lesson will begin to get us acquainted with the Leaflet JavaScript mapping 
 
 Most importantly, we'll want to learn how Leaflet employs **Scalable Vector Graphics (SVG)** to draw representations of geographic features on a map.    
 
-    
 ## TOC
+
+- [What is Leaflet?](#what-is-leaflet)
+- [Learning to read the  Leaflet API](#learning-to-read-the--leaflet-api)
+- [The Leaflet map object](#the-leaflet-map-object)
+    - [The first parameter (`id`)](#the-first-parameter-id)
+    - [The second parameter (options): center and zoom](#the-second-parameter-options-center-and-zoom)
+    - [More properties for the second parameter (options)](#more-properties-for-the-second-parameter-options)
+    - [Putting events (user interaction) into your map](#putting-events-user-interaction-into-your-map)
+    - [Putting "methods for modifying map state" into your map](#putting-methods-for-modifying-map-state-into-your-map)
+    - [Putting "methods for getting map state" into your map](#putting-methods-for-getting-map-state-into-your-map)
+    - [Putting "methods for layers and controls" into your map](#putting-methods-for-layers-and-controls-into-your-map)
+- [UI Layers](#ui-layers)
+    - [Leaflet markers](#leaflet-markers)
+    - [Leaflet marker options](#leaflet-marker-options)
+    - [Leaflet event methods](#leaflet-event-methods)
+- [SVG Vector Layers](#svg-vector-layers)
+    - [Vector vs. raster](#vector-vs-raster)
+    - [Leaflet's vector layers - example of the circle class](#leaflets-vector-layers---example-of-the-circle-class)
+    - [Understanding path options and extend/inheritance](#understanding-path-options-and-extendinheritance)
+    - [Putting path options to work in `L.circle*](#putting-path-options-to-work-in-lcircle)
+- [Working with LayerGroup](#working-with-layergroup)
+
 
 ## What is Leaflet?
 

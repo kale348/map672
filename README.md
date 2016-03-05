@@ -65,3 +65,38 @@
 - [Passing arguments and using function parameters](module-05/lesson-05.md#passing-arguments-and-using-function-parameters)
 - [Return values](module-05/lesson-05.md#return-values)
 - [Function scope](module-05/lesson-05.md#function-scope)
+
+## Module 06: JavaScript Objects and Methods
+
+- [What are JavaScript Objects?](module-06/lesson-06.md#what-are-javascript-objects)
+- [Creating JavaScript Object Properties](module-06/lesson-06.md#creating-javascript-object-properties)
+- [Accessing JavaScript Object Properties](module-06/lesson-06.md#accessing-javascript-object-properties)
+- [Updating JavaScript Object Properties](module-06/lesson-06.md#updating-javascript-object-properties)
+- [Looping through objects](module-06/lesson-06.md#looping-through-objects)
+- [JavaScript methods](module-06/lesson-06.md#javascript-methods)
+- [Additional native JS methods](module-06/lesson-06.md#additional-native-js-methods)
+
+## Module 07: 
+
+- [What is Leaflet?](module-07/lesson-07.md#what-is-leaflet)
+- [Learning to read the  Leaflet API](module-07/lesson-07.md#learning-to-read-the--leaflet-api)
+- [The Leaflet map object](module-07/lesson-07.md#the-leaflet-map-object)
+    - [The first parameter (`id`)](module-07/lesson-07.md#the-first-parameter-id)
+    - [The second parameter (options): center and zoom](module-07/lesson-07.md#the-second-parameter-options-center-and-zoom)
+    - [More properties for the second parameter (options)](module-07/lesson-07.md#more-properties-for-the-second-parameter-options)
+    - [Putting events (user interaction) into your map](module-07/lesson-07.md#putting-events-user-interaction-into-your-map)
+    - [Putting "methods for modifying map state" into your map](module-07/lesson-07.md#putting-methods-for-modifying-map-state-into-your-map)
+    - [Putting "methods for getting map state" into your map](module-07/lesson-07.md#putting-methods-for-getting-map-state-into-your-map)
+    - [Putting "methods for layers and controls" into your map](module-07/lesson-07.md#putting-methods-for-layers-and-controls-into-your-map)
+- [UI Layers](module-07/lesson-07.md#ui-layers)
+    - [Leaflet markers](module-07/lesson-07.md#leaflet-markers)
+    - [Leaflet marker options](module-07/lesson-07.md#leaflet-marker-options)
+    - [Leaflet event methods](module-07/lesson-07.md#leaflet-event-methods)
+- [SVG Vector Layers](module-07/lesson-07.md#svg-vector-layers)
+    - [Vector vs. raster](module-07/lesson-07.md#vector-vs-raster)
+    - [Leaflet's vector layers - example of the circle class](module-07/lesson-07.md#leaflets-vector-layers---example-of-the-circle-class)
+    - [Understanding path options and extend/inheritance](module-07/lesson-07.md#understanding-path-options-and-extendinheritance)
+    - [Putting path options to work in `L.circle*](module-07/lesson-07.md#putting-path-options-to-work-in-lcircle)
+- [Working with LayerGroup](module-07/lesson-07.md#working-with-layergroup)
+
+

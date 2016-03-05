@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Lesson 08 Template</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: whitesmoke;
+            font-family: Lato, sans-serif;
+            color: #0D0000;
+        }
+        
+        header {
+            padding: 6px 10%;
+        }
+        
+        h1 {
+            display: inline-block;
+            margin-right: 20px;
+            color: #001323;
+        }
+        
+        h2 {
+            display: inline-block;
+            color: #001323;
+        }
+        
+        #map {
+            width: 80%;
+            height: 540px;
+            margin: 10px auto;
+        }
+        
+        footer {
+            padding: 6px 10%;
+            width: 80%;
+        }
+        
+        p {
+            font-size: 1em;
+            color: #001323;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Lesson 08 Examples</h1>
+        <h2>Part 1: Displaying GeoJSON Data Stored within the HTML File</h2>
+    </header>
+
+    <div id='map'></div>
+
+    <footer>
+        <p>Map authored by Lauren Winkler</p>
+    </footer>
+
+    <script>
+        // build your Leaflet map here!
+        
+        // Create an object called places with data created in geojson.io
+        var places = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "marker-color": "#7e7e7e",
+                        "marker-size": "medium",
+                        "marker-symbol": "",
+                        "name": "Tallinn",
+                        "size": 159
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [24.740524291992184,59.43809305995512]
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "marker-color": "#7e7e7e",
+                        "marker-size": "medium",
+                        "marker-symbol": "",
+                        "name": "Haapsalu",
+                        "size": 10.59
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [23.542499542236328,58.939027464486394]
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "marker-color": "#7e7e7e",
+                        "marker-size": "medium",
+                        "marker-symbol": "",
+                        "name": "Parnu",
+                        "size": 32.22
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [24.51873779296875,58.37993855244662]
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "marker-color": "#7e7e7e",
+                        "marker-size": "medium",
+                        "marker-symbol": "",
+                        "name": "Tartu",
+                        "size": 38.86
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [26.723556518554688,58.373458005518735]
+                    }
+                }
+            ]
+        }
+        
+        
+        // Create a map centered in Estonia
+        var map = L.map('map', {
+            center: [58.73, 25.67], // centered in Estonia
+            zoom: 7
+        });
+        
+        // Add a tile basemap
+        var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        });
+        tiles.addTo(map);
+        
+        /*
+        // Convert the GeoJSON data in places to a Leaflet GeoJson object and add it to the map
+        var placesLeaflet = L.geoJson(places).addTo(map);
+        
+        console.log(places);
+        console.log(placesLeaflet);
+        
+        // Display the GeoJSON data in places as Leaflet circles, using the pointToLayer method
+        var placesLeaflet = L.geoJson(places, {
+            pointToLayer : function(feature, latlng) {
+                console.log(feature.properties.name);
+                console.log(latlng);
+                return L.circle(latlng, 20000);
+            }
+        }).addTo(map);
+        
+        // any values can be used in place of the feature and latlng variable names
+        var placeLeaflet = L.geoJson(places, {
+            pointToLayer : function(f, ll) {
+                console.log(f, ll);
+                return L.circle(ll, 20000);
+            }
+        }).addTo(map);
+        
+        // Display the GeoJSON data in places as Leaflet circles, using the pointToLayer method. Log the feature parameter to the console.
+        var placesLeaflet = L.geoJson(places, {
+            pointToLayer : function(feature, latlng) {
+                console.log(feature.properties.size);
+                return L.circle(latlng, 20000);
+            }
+        }).addTo(map);
+        */
+        
+        // Set the size of each circle with the size of the city (multiplied by 100)
+        var placesLeaflet = L.geoJson(places, {
+            pointToLayer : function(feature, latlng) {
+                return L.circle(latlng, feature.properties.size * 100);
+            }
+        }).addTo(map);
+
+    </script>
+
+</body>
+
+</html>

@@ -50,4 +50,4 @@ You'll see that a Leaflet map object has already been created, centered on latit
 
 Also submit your *lesson-07-data/index.html* file with the script and commented code as requested at the end of Lesson 07. (**2pts**).
 
-Sync your final solutions with your remote repository and provide a link within Canvas by the due date: **Thursday, February 12th, 11:00am**.
+Sync your final solutions with your remote repository and provide a link within Canvas by the due date: **Friday, March 4th, 11:59pm**.

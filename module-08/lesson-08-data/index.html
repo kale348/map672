@@ -64,7 +64,7 @@
 
     <footer>
         <p>Map authored by Lauren Winkler</p>
-        <p>This map displays major sources of clean electricity, specifically hydroelectric, wind, solar, geothermal, biomass, and wood power plants which produce more than 500 MW hours of power. Data is filtered from a set of 6900 electrical generating power plants across the US obtain from the <a href="http://www.eia.gov/electricity/data/eia923/">EIA's form 923</a>.</p>
+        <p>This map displays major sources of clean electricity, specifically hydroelectric, wind, solar, geothermal, biomass, and wood power plants which produce more than 500 MW of power. Data is filtered from a set of 6900 electricity generating power plants across the US, obtained from the <a href="http://www.eia.gov/electricity/data/eia923/">EIA's form 923</a>.</p>
     </footer>
     
     <!-- Load GeoJSON data stored in the external file, power-plants.js -->
@@ -91,17 +91,17 @@
         console.log(plants);
         
         /*
-        // Add all 6900 features from the plants object to the map and display them with marker symbols
+        // Add all 6900 power plant features from the plants object to the map and display them with marker symbols
         L.geoJson(plants).addTo(map);
         
-        // Add the plants to the map and display them as circles using the pointToLayer method
+        // Add the power plants to the map and display them as circles using the pointToLayer method
         L.geoJson(plants, {
             pointToLayer: function(feature, latlng) {
                 return L.circleMarker(latlng);
             }
         }).addTo(map);
 
-        // Add the plants to the map and display them as circles using the pointToLayer method. Set styling options.
+        // Add the power plants to the map and display them as circles using the pointToLayer method. Set styling options.
         L.geoJson(plants, {
             pointToLayer: function(feature, latlng) {
                 return L.circleMarker(latlng, {
@@ -115,7 +115,7 @@
         }).addTo(map);
         */
         
-        // Use the filter method to only display plants using Hydro as one of its sources (Hydro is a property of the fuel source object, hence the dot notation to access it)
+        // Use the filter method to only display power plants using Hydro as one of its sources (Hydro is a property of the fuel source object, hence the dot notation to access it)
         L.geoJson(plants, {
             pointToLayer: function(feature, latlng) {
                 return L.circleMarker(latlng, {
@@ -128,7 +128,7 @@
             },
             
             /*
-            // Filter hydro plants
+            // Filter hydro power plants
             filter: function(feature, layer) {
                 if(feature.properties.fuel_source.Hydro) {
                     return feature; // return that feature to be included in the layer group
@@ -137,7 +137,7 @@
             */
             
             /*
-            // Filter wind plants
+            // Filter wind power plants
             filter: function(feature, layer) {
                 if(feature.properties.fuel_source.Wind) {
                     return feature; // return that feature to be included in the layer group
@@ -146,7 +146,7 @@
             */
             
             /*
-            // Filter natural gas plants. The statement needs to use bracket notation instead of dot notation because "Natural Gas" contains a space.
+            // Filter natural gas power plants. The statement needs to use bracket notation instead of dot notation because "Natural Gas" contains a space.
             filter: function(feature, layer) {
                 if(feature.properties.fuel_source['Natural Gas']) {
                     return feature; // return that feature to be included in the layer group
@@ -155,7 +155,7 @@
             */
             
             /*
-            // Filter plants producing more than 500 MW hours of power
+            // Filter power plants producing more than 500 MW of power
             filter: function(feature, layer) {
                 if(feature.properties.capacity_mw > 500) {
                     return feature;
@@ -164,7 +164,7 @@
             */
             
             /*
-            // Filter plants which are powered by coal AND produce less than 500 MW hours of power
+            // Filter power plants which are powered by coal AND produce less than 500 MW of power
             filter: function(feature, layer) {
                 if(feature.properties.capacity_mw < 500 && feature.properties.fuel_source.Coal) {
                     return feature;
@@ -172,7 +172,7 @@
             }
             */
             
-            // Filter plants which are powered by clean energy sources (hydro, wind, solar, geothermal, biomass, or wood) AND produce more than 500 MW hours of power
+            // Filter power plants which are powered by clean energy sources (hydro, wind, solar, geothermal, biomass, or wood) AND produce more than 500 MW of power
             filter: function(feature, layer) {
                 if((feature.properties.fuel_source.Hydro || feature.properties.fuel_source.Wind || feature.properties.fuel_source.Solar || feature.properties.fuel_source.Geothermal || feature.properties.fuel_source.Biomass || feature.properties.fuel_source.Wood) && feature.properties.capacity_mw > 500) {
                     return feature;

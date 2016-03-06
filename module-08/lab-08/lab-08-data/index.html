@@ -128,7 +128,7 @@
                 });           
                 
                 // Create a popup that displays the plant name in bold and the capacity in MW
-                var popup = '<b>' + feature.properties.plant_name + '</b>' + '<br/>' + feature.properties.capacity_mw + ' MW';
+                var popup = '<b>' + feature.properties.plant_name + '</b>' + '<br/>' + feature.properties.capacity_mw.toLocaleString() + ' MW';
                 
                 // Check if there is more than one fuel source (specifically, if the total capacity is greater than the individual capacity for hydro or the individual capacity for coal)
                 if(feature.properties.capacity_mw > feature.properties.fuel_source.Hydro || feature.properties.capacity_mw > feature.properties.fuel_source.Coal ) {
@@ -137,7 +137,7 @@
                     for (var key in feature.properties.fuel_source) {
                         var fuelSource = key;
                         var fuelSourceCapacity = feature.properties.fuel_source[key];
-                        popup += '<br/>' + '<b>' + fuelSource + ': </b>' + fuelSourceCapacity + ' MW';
+                        popup += '<br/>' + '<b>' + fuelSource + ': </b>' + fuelSourceCapacity.toLocaleString() + ' MW';
                     }   
                 }
                 

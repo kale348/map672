@@ -130,48 +130,15 @@
                 // Create a popup that displays the plant name in bold and the capacity in MW
                 var popup = '<b>' + feature.properties.plant_name + '</b>' + '<br/>' + feature.properties.capacity_mw + ' MW';
                 
-                // Check if there is more than one fuel source (specifically, if the total capacity is greater than the individual capacity for hydro or the individual capacity for coal). If so, add additional lines to the popup to display the capacity of each fuel source.
+                // Check if there is more than one fuel source (specifically, if the total capacity is greater than the individual capacity for hydro or the individual capacity for coal)
                 if(feature.properties.capacity_mw > feature.properties.fuel_source.Hydro || feature.properties.capacity_mw > feature.properties.fuel_source.Coal ) {
                     
-                    if(feature.properties.fuel_source.Hydro) {
-                        popup += '<br/>' + '<b>Hydro: </b>' + feature.properties.fuel_source.Hydro + ' MW';
-                    }    
-                    if(feature.properties.fuel_source.Coal) {
-                        popup += '<br/>' + '<b>Coal: </b>' + feature.properties.fuel_source.Coal + ' MW';
-                    }                    
-                    if(feature.properties.fuel_source['Natural Gas']) {
-                        popup += '<br/>' + '<b>Natural Gas: </b>' + feature.properties.fuel_source['Natural Gas'] + ' MW';
-                    }
-                    if(feature.properties.fuel_source.Petroleum) {
-                        popup += '<br/>' + '<b>Petroleum: </b>' + feature.properties.fuel_source.Petroleum + ' MW';
-                    }                    
-                    if(feature.properties.fuel_source.Nuclear) {
-                        popup += '<br/>' + '<b>Nuclear: </b>' + feature.properties.fuel_source.Nuclear + ' MW';
-                    }                     
-                    if(feature.properties.fuel_source.Wind) {
-                        popup += '<br/>' + '<b>Wind: </b>' + feature.properties.fuel_source.Wind + ' MW';
-                    } 
-                    if(feature.properties.fuel_source['Pumped Storage']) {
-                        popup += '<br/>' + '<b>Pumped Storage: </b>' + feature.properties.fuel_source['Pumped Storage'] + ' MW';
-                    }
-                    if(feature.properties.fuel_source.Solar) {
-                        popup += '<br/>' + '<b>Solar: </b>' + feature.properties.fuel_source.Solar + ' MW';
-                    } 
-                    if(feature.properties.fuel_source.Geothermal) {
-                        popup += '<br/>' + '<b>Geothermal: </b>' + feature.properties.fuel_source.Geothermal + ' MW';
-                    } 
-                    if(feature.properties.fuel_source.Biomass) {
-                        popup += '<br/>' + '<b>Biomass: </b>' + feature.properties.fuel_source.Biomass + ' MW';
-                    } 
-                    if(feature.properties.fuel_source.Wood) {
-                        popup += '<br/>' + '<b>Wood: </b>' + feature.properties.fuel_source.Wood + ' MW';
-                    } 
-                    if(feature.properties.fuel_source.Other) {
-                        popup += '<br/>' + '<b>Other: </b>' + feature.properties.fuel_source.Other + ' MW';
-                    } 
-                    if(feature.properties.fuel_source['Other Fossil Gasses']) {
-                        popup += '<br/>' + '<b>Other Fossil Gasses: </b>' + feature.properties.fuel_source['Other Fossil Gasses'] + ' MW';
-                    }
+                    // If there is more than one fuel source, loop through all the key/value pairs in the fuel_source object and add a line to the popup for each fuel source displaying its name and capacity
+                    for (var key in feature.properties.fuel_source) {
+                        var fuelSource = key;
+                        var fuelSourceCapacity = feature.properties.fuel_source[key];
+                        popup += '<br/>' + '<b>' + fuelSource + ': </b>' + fuelSourceCapacity + ' MW';
+                    }   
                 }
                 
                 // Bind the popup to the feature

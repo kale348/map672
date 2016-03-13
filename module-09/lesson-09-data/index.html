@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8 />
-    <title>Lesson 09 Template</title>
+    <title>Lesson 09 Examples</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -19,27 +19,33 @@
             font-family: Lato, sans-serif;
             color: #0D0000;
         }
+        
         header {
             padding: 6px 10%;
         }
+        
         h1 {
             display: inline-block;
             margin-right: 20px;
             color: #001323;
         }
+        
         h2 {
             display: inline-block;
             color: #001323;
         }
+        
         #map {
             width: 80%;
             height: 540px;
             margin: 10px auto;
         }
+        
         footer {
             padding: 6px 10%;
             width: 80%;
         }
+        
         p {
             font-size: 1em;
             color: #001323;
@@ -49,35 +55,241 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>Lesson 9 Examples</h1>
     </header>
 
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by YOUR NAME</p>
-        <p>Additional information about the data and map goes here.</p>
+        <p>Map authored by Lauren Winkler</p>
+        <p>This map displays hydroelectric and wind power plants. Click a point on the map to show only power plants within 500 km of the point clicked. Click a feature to see its distance from the point clicked, in km.</p>
+        <p>Data is filtered from a set of 6900 electricity generating power plants across the US, obtained from the <a href="http://www.eia.gov/electricity/data/eia923/">EIA's form 923</a>.</p>
     </footer>
 
     <script src="power-plants.js"></script>
     <script>
+        var map = L.map('map', {
+            center: [36, -94],
+            zoom: 4,
+        });
 
-       var map = L.map('map', {
-          center: [36,-94],
-          zoom: 4,
-      });
-      
-      var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-          subdomains: 'abcd',
-          maxZoom: 19
-      });  
-      
-      tiles.addTo(map);
-                  
+        var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        });
+
+        tiles.addTo(map);
+        
+        /*
+        // Create proportional circleMarker symbols based on the value of the fuel source. Define the style within the pointToLayer method.
+        L.geoJson(plants, {
+            pointToLayer: function(feature, latlng) {
+                return L.circleMarker(latlng, {
+                    color: '#1f78b4',
+                    fillColor: '#1f78b4',
+                    weight: 1,
+                    stroke: 1,
+                    fillOpacity: .8,
+                    radius: getRadius(feature.properties.fuel_source.Hydro)
+                });
+            },
+            
+            filter: function(feature) {
+                if(feature.properties.fuel_source.Hydro) {
+                    return feature;
+                }
+            }
+        }).addTo(map);
+        
+        function getRadius(val) {
+            var radius = Math.sqrt(val/Math.PI);
+            return radius * .8;
+        }
+        */
+        
+        /*
+        // Create proportional circleMarker symbols based on the value of the fuel source. Define the style within the style method.
+        
+        var hydroLayer = L.geoJson(plants, {
+            pointToLayer: function(feature, latlng) {
+                return L.circleMarker(latlng);
+            },
+            
+            /*
+            // Filter to only show features whose fuel source is Hydro
+            filter: function(feature) {
+                if(feature.properties.fuel_source.Hydro) {
+                    return feature;
+                }
+            },
+            */
+            
+            /*
+            // Use the style method to define the style of each point
+            style: function(feature) {
+                return {
+                    color: '#1f78b4',
+                    fillColor: '#1f78b4',
+                    weight: 1,
+                    stroke: 1,
+                    fillOpacity: .8,
+                    radius: getRadius(feature.properties.fuel_source.Hydro)
+                }
+            }
+            */
+            
+            /*
+            // Loop through each feature. If the feature has a fuel source of coal, show it in red. If it has a fuel source of Hydro, show it in blue.
+            onEachFeature: function(feature, layer) {
+                if(feature.properties.fuel_source.Coal) {
+                    layer.setStyle({
+                        fillColor: 'red',
+                        color: 'red',
+                        radius: getRadius(feature.properties.fuel_source.Coal)
+                    });
+                    layer.symbolColor = 'red';
+                } else if (feature.properties.fuel_source.Hydro) {
+                    layer.setStyle({
+                        fillColor: 'blue',
+                        color: 'blue',
+                        radius: getRadius(feature.properties.fuel_source.Hydro)
+                    });
+                    layer.symbolColor = 'blue';
+                }
+            }
+        
+        }).addTo(map);
+        
+        function getRadius(val) {
+            var radius = Math.sqrt(val/Math.PI);
+            return radius * .8;
+        }
+        */
+        
+        /*
+        // Set the color and fill of each feature in hydroLayer
+        hydroLayer.setStyle({
+            color: '#a5c9e2',
+            fillColor: '#a5c9e2'
+        });
+        */
+        
+        /*
+        // When the user clicks a point on the map, filter the power plants to only show those within 500 km of the point clicked. Add a popup to each remaining power plant that shows the distance between the power plant and the point clicked.
+        map.on('click', function(e) {
+            //console.log(e.latlng) // access to the click coordinates
+            hydroLayer.eachLayer(function(layer) {
+                //console.log(layer.getLatLng()); // access to the coordinates of each layer (circle)
+                var distance = e.latlng.distanceTo(layer.getLatLng())/1000; // calculate the distance in kilometers between the point clicked and each layer's centroid
+                
+                // If the distance between the point clicked and the layer centroid is more than 500 km, set its stroke and fill to false to render it invisible. Otherwise, set its stroke and fill to true so it remains visible.
+                if(distance > 500) {
+                    layer.setStyle({
+                        stroke: false,
+                        fill: false
+                    });
+                } else {
+                    layer.setStyle({
+                        stroke: true,
+                        fill: true,
+                    });
+                    
+                    layer.bindPopup("I am <b>" + distance.toLocaleString() + "km</b><br> from the click point.");
+                }
+            });
+        });
+        */
+        
+        // Create an object of common styles for each feature
+        var commonStyles = {
+            weight: 1,
+            stroke: 1,
+            fillOpacity: .8
+        };
+        
+        // Create an object to hold the layer source and color
+        var layerInfo = {
+            hydroLayer: {source:"Hydro", color:'#1f78b4'},
+            windLayer: {source:"Wind", color:'#a6cee3'}
+        };
+        
+        // Create an empty object that will be used to store each Leaflet GeoJson layer
+        var geoJsonLayers = {};
+        
+        // Refactored code
+        // Loop through each layer in the layerInfo object and add it to the geoJsonLayers object as a circle marker.
+        for (var layer in layerInfo) {
+            geoJsonLayers[layer] = L.geoJson(plants, {
+                
+                // Create circle markers for each feature
+                pointToLayer: function(feature, latlng) {
+                    return L.circleMarker(latlng, commonStyles);
+                },
+                
+                // Filter features with each fuel source in the layerInfo object
+                filter: function(feature) {
+                    if(feature.properties.fuel_source[layerInfo[layer].source]) {
+                        return feature;
+                    }
+                },
+                
+                // Style the features from each fuel source with the corresponding color in the layerInfo object.
+                style: function(feature) {
+                    return {
+                        color: layerInfo[layer].color,
+                        fillColor: layerInfo[layer].color,
+                        radius: getRadius(feature.properties.fuel_source[layerInfo[layer].source])
+                    }
+                }
+            }).addTo(map);
+        }
+        
+        function getRadius(val) {
+            var radius = Math.sqrt(val/Math.PI);
+            return radius * .8;
+        }
+        
+        // When the user clicks a point on the map, filter the power plants to only show those within 500 km of the point clicked. Add a popup to each remaining power plant that shows the distance between the power plant and the point clicked.
+        map.on('click', function(e) {
+            
+            for (var layer in layerInfo) {
+                geoJsonLayers[layer].eachLayer(function(layer) {
+
+                    var distance = e.latlng.distanceTo(layer.getLatLng())/1000; // calculate the distance in kilometers between the point clicked and each layer's centroid
+
+                    // If the distance between the point clicked and the layer centroid is more than 500 km, set its stroke and fill to false to render it invisible. Otherwise, set its stroke and fill to true so it remains visible.
+                    if(distance > 500) {
+                        layer.setStyle({
+                            stroke: false,
+                            fill: false
+                        });
+                    } else {
+                        layer.setStyle({
+                            stroke: true,
+                            fill: true,
+                        });
+
+                        layer.bindPopup("I am <b>" + distance.toLocaleString() + "km</b><br> from the click point.");
+                    }
+                });
+            }
+        });
+        
+        // Create an object to store each layer
+        var sourcesLabels = {
+            "Hydro": geoJsonLayers.hydroLayer,
+            "Wind": geoJsonLayers.windLayer,
+        }
+        
+        // Create a layer control and add it to the map. The layer control will contain:
+        // 1. No basemap options
+        // 2. Layer options from the sourceLayers object 
+        // 3. An options array to keep the layer control UI open
+        L.control.layers(null, sourcesLabels, {collapsed: false }).addTo(map);    
+        
     </script>
-    
+
 </body>
 
 </html>

@@ -16,7 +16,7 @@ You've been hired to make an interactive web map of US electric power generation
 
 You will use and adapt the code examples presented in Lessons 08 and 09 to solve this map assignment.  
 
-**Map due date**: The client needs the final map submitted via Github and a link through the Canvas assignment no later than ***11:59pm on Thursday, March 18th***
+**Map due date**: The client needs the final map submitted via Github and a link through the Canvas assignment no later than ***11:59pm on Friday, March 18th***
 
 **Additional Challenge #1**:
 
